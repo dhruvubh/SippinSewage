@@ -1,21 +1,21 @@
-const int speakerPin = 8;  // Define the pin connected to the speaker
+const int speakerPin = 8;  
 
 void setup() {
-  Serial.begin(9600); // Initialize serial communication at 9600 bps
-  pinMode(speakerPin, OUTPUT);  // Set the speaker pin as an output
+  Serial3.begin(115200); 
+  pinMode(speakerPin, OUTPUT);  
 }
 
 void loop() {
-  int sensorValue = analogRead(A0); // Read analog value from pin A0
-  float voltage = sensorValue * (5.0 / 1024.0); // Convert analog reading to voltage
-  Serial.println(voltage); // Print the voltage to the Serial Monitor
+  int sensorValue = analogRead(A1); 
+  float voltage = sensorValue * (5.0 / 1024.0); 
+  Serial3.println(voltage); 
 
   if (voltage < 1.3) {
-    // If voltage is less than 1.3V, activate the speaker to produce a beep
-    tone(speakerPin, 1000);  // You can adjust the frequency as needed
-    delay(200);  // Beep duration (milliseconds)
-    noTone(speakerPin);  // Turn off the speaker
+   
+    tone(speakerPin, 1000); 
+    delay(200);  
+    noTone(speakerPin);  
   }
 
-  delay(500); // Delay for 500 milliseconds
+  delay(500); 
 }
